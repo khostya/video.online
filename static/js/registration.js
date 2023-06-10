@@ -1,0 +1,22 @@
+async function registration() {
+    let email = document.getElementById("email").value
+
+    let password = document.getElementById("password").value
+    let authdata = JSON.stringify({
+        'email': email,
+        'password': password,
+        "is_active": true,
+        "is_superuser": false,
+        "is_verified": false
+    })
+
+    let response = await fetch("http://localhost:8000/auth/register", {
+        method: 'POST', body: authdata,
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+    })
+    if (response.status === 201) {
+        alert("Вы зарегестрированны!")
+    }
+}

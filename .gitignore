@@ -1,0 +1,5 @@
+.idea
+venv
+.env
+video.online.db
+__pycache__
