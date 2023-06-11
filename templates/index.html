@@ -31,13 +31,14 @@
                 </nav>
             </aside>
             <div class="content-wrapper">
-                <ul id="videos"></ul>
-                {% for video in videos %}
-                    <li id="video">
-                        <video src="{{ video.video }}"></video>
-                        <p id="video-name">{{ video.name }}</p>
-                    </li>
-                {% endfor %}
+                <ul id="videos">
+                    {% for video in videos %}
+                        <li id="video">
+                            <video src="{{ video.video }}"></video>
+                            <p id="video-name">{{ video.name }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </main>
 

@@ -1,11 +1,11 @@
-ol{
+ul{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
 }
 
 li{
-    width: 60%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
@@ -26,7 +26,18 @@ video{
 }
 
 #video-name{
-    width: 20%;
+    width: 70%;
     margin: auto;
     text-align: center;
+}
+
+@media screen and (max-width: 500px){
+    li:nth-child(1){
+        margin-top: 1%;
+    }
+
+    ul{
+        flex-direction: column;
+        width: 100%;
+    }
 }

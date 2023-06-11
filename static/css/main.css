@@ -48,6 +48,9 @@ aside{
 }
 
 .content-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 65vw;
     margin: 0 auto 0 1vw;
 }
@@ -59,4 +62,10 @@ nav{
     justify-content: space-between;
     flex-direction: column;
     text-align: center;
+}
+
+@media screen and (max-width: 500px){
+    .content-wrapper{
+        width: 100%;
+    }
 }

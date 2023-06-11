@@ -11,6 +11,8 @@ from app.video.videousecase import VideoUseCase
 from fastapi_users.jwt import  decode_jwt
 video_router = InferringRouter()
 
+# 60MB
+MAX_UPLOAD_SIZE = 62_914_560
 
 @cbv(video_router)
 class VideoRouter:
@@ -42,9 +44,16 @@ class VideoRouter:
             user_id = data.get('sub')
         except:
             return Response(status_code=401)
+
+        if list(reversed(file.filename.split('.')))[0] != 'mp4':
+            return Response(status_code=303, headers={'Location': '/upload'})
+
+        if file.size > MAX_UPLOAD_SIZE:
+            return Response(status_code=303, headers={'Location': '/upload'})
+
         upload = VideoUpload(user_id, '', name)
         url = self.useCase.upload_file(file, upload.id)
         upload.video = url
         await self.useCase.create_video(upload)
 
-        return Response(status_code=303, content=url, headers={'Location': 'http://localhost:8000/'})
+        return Response(status_code=303, content=url, headers={'Location': '/upload'})
