@@ -30,6 +30,7 @@ class VideoRouter:
         videos = self.useCase.get()
         return Response(status_code=201, content=videos)
 
+    ## очень очень очень очень плохо
     @video_router.post("/video", response_class=Response)
     async def upload(self, name: Annotated[str, Form()], file: Annotated[UploadFile, File()],
                    jwtoken: Annotated[str, Form()]):
@@ -41,7 +42,6 @@ class VideoRouter:
             user_id = data.get('sub')
         except:
             return Response(status_code=401)
-
         upload = VideoUpload(user_id, '', name)
         url = self.useCase.upload_file(file, upload.id)
         upload.video = url

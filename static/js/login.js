@@ -21,12 +21,11 @@ async function login(){
             },
         })
 
-    if (response.status === 201){
+    if (response.status === 200){
         alert("Успех!")
     }
 
     let object = await response.json()
     let token = object['access_token']
     localStorage.setItem('accessToken', 'Bearer '+ token)
-    alert(JSON.stringify(object))
 }

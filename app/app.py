@@ -6,6 +6,7 @@ from app.db import create_db_and_tables
 from app.user.routers import *
 from app.site.router import template_router
 from app.video.router import video_router
+from app.like.router import like_router
 
 app = FastAPI()
 
@@ -26,7 +27,7 @@ app.include_router(template_router, tags=["templates"])
 app.include_router(account_router, tags=["account"])
 
 app.include_router(video_router, tags=["video"])
-
+app.include_router(like_router, tags=["like"])
 
 @app.on_event("startup")
 async def on_startup():

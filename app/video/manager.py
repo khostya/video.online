@@ -1,8 +1,6 @@
 from app.video.schemas import VideoInDb
 from app.db import async_session_maker
 from sqlalchemy import select
-from app.user.user import User
-
 
 class VideoManager:
 
@@ -17,6 +15,7 @@ class VideoManager:
 
             await session.commit()
 
+    ## очень плохо
     async def get_by_id(self, id):
         videos = await self.get()
         video = list(filter(lambda x: x.id == id, videos))

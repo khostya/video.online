@@ -32,12 +32,19 @@
                 </nav>
             </aside>
             <div class="content-wrapper">
-                <ul id="videos">
-                    <li>
+                <div id="video">
+
+                    <div id="video_content">
                         <video controls src="{{ video.video }}"></video>
                         <p id="video-name">{{ video.name }}</p>
-                    </li>
-                </ul>
+                    </div>
+
+                    <div id="like_block">
+                        <img id="like" src="../static/image/like.svg" alt="большой палец вверх">
+                        <p id="count_likes">{{ count }}</p>
+                        <input type="checkbox" hidden="hidden" id="checked">
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -48,5 +55,6 @@
     </div>
 
     <script src="../static/js/navigation.js"></script>
+    <script src="../static/js/video.js"></script>
 </body>
 </html>

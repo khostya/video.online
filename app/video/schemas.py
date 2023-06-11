@@ -18,7 +18,6 @@ class FileUploadResponse(BaseModel):
     video: str
 
 
-
 class FileUploadRequest(BaseModel):
     name: str
     video: str

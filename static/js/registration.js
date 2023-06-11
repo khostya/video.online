@@ -16,7 +16,10 @@ async function registration() {
             'Content-Type': 'application/json;charset=utf-8'
           },
     })
+
     if (response.status === 201) {
         alert("Вы зарегестрированны!")
+    }else{
+        response.json().then(x => alert(JSON.stringify(x)))
     }
 }

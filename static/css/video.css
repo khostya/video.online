@@ -1,10 +1,6 @@
-ol{
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-}
 
-li{
+
+#video_content{
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -12,18 +8,34 @@ li{
     margin: auto auto 1%;
 }
 
-li:hover{
+#video_content:hover{
     box-shadow: 3px 3px 3px 3px gray;
-}
-
-
-video{
-    width: 90%;
-    margin: auto;
 }
 
 #video-name{
     width: 30%;
     margin: auto;
+    text-align: center;
+}
+
+#like_block{
+    display: flex;
+    flex-direction: row;
+    width: 8%;
+    margin-left: 10%;
+    padding-right: 5%;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+#like_block:active{
+    transform: scale(0.95);
+}
+
+#like{
+    width: 70%;
+}
+
+
+#count_likes{
     text-align: center;
 }
