@@ -10,7 +10,7 @@ async function registration() {
         "is_verified": false
     })
 
-    let response = await fetch("http://localhost:8000/auth/register", {
+    let response = await fetch("/auth/register", {
         method: 'POST', body: authdata,
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

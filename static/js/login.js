@@ -11,7 +11,7 @@ async function login(){
         'client_secret': '',
     }
 
-    let response = await fetch("http://localhost:8000/auth/jwt/login",
+    let response = await fetch("/auth/jwt/login",
         {
             method: 'POST',
             body: new URLSearchParams(authdata),
@@ -23,6 +23,9 @@ async function login(){
 
     if (response.status === 200){
         alert("Успех!")
+    }else {
+        response.json().then(x => alert(JSON.stringify(x)))
+        return
     }
 
     let object = await response.json()
