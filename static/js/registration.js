@@ -22,8 +22,39 @@ async function registration() {
     })
 
     if (response.status === 201) {
-        alert("Вы зарегестрированны!")
+        await login(email, password)
     }else{
         response.json().then(x => alert(JSON.stringify(x)))
     }
+}
+
+async function login(email, password){
+    let authdata = {
+        'username': email,
+        'password': password,
+        'grant_type': '',
+        'scope': '',
+        'client_id': '',
+        'client_secret': '',
+    }
+
+    let response = await fetch("/auth/jwt/login",
+        {
+            method: 'POST',
+            body: new URLSearchParams(authdata),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'accept': 'application/json'
+            },
+        })
+
+    if (response.status !== 200){
+        response.json().then(x => alert(JSON.stringify(x)))
+        return
+    }
+
+    let object = await response.json()
+    let token = object['access_token']
+    localStorage.setItem('accessToken', 'Bearer '+ token)
+    window.location.replace('/')
 }

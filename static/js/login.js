@@ -24,9 +24,7 @@ async function login(){
             },
         })
 
-    if (response.status === 200){
-        window.location.replace('/')
-    }else {
+    if (response.status !== 200){
         response.json().then(x => alert(JSON.stringify(x)))
         return
     }
@@ -34,4 +32,5 @@ async function login(){
     let object = await response.json()
     let token = object['access_token']
     localStorage.setItem('accessToken', 'Bearer '+ token)
+    window.location.replace('/')
 }
