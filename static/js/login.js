@@ -1,7 +1,10 @@
 async function login(){
     let email = document.getElementById("email").value
-
     let password = document.getElementById("password").value
+    if (email === '' || password === ''){
+        alert('почта и пароль должны быть')
+        return
+    }
     let authdata = {
         'username': email,
         'password': password,
@@ -22,7 +25,7 @@ async function login(){
         })
 
     if (response.status === 200){
-        alert("Успех!")
+        window.location.replace('/')
     }else {
         response.json().then(x => alert(JSON.stringify(x)))
         return

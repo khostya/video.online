@@ -45,7 +45,7 @@ class VideoRouter:
         except:
             return Response(status_code=401)
 
-        if list(reversed(file.filename.split('.')))[0] != 'mp4':
+        if file.content_type != 'video/mp4':
             return Response(status_code=303, headers={'Location': '/upload'})
 
         if file.size > MAX_UPLOAD_SIZE:

@@ -1,7 +1,11 @@
 async function registration() {
     let email = document.getElementById("email").value
-
     let password = document.getElementById("password").value
+    if (email === '' || password === ''){
+        alert('почта и пароль должны быть')
+        return
+    }
+
     let authdata = JSON.stringify({
         'email': email,
         'password': password,
